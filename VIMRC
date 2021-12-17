@@ -1,0 +1,20 @@
+syntax on
+
+set showmatch
+set cursorline
+hi CursorLine cterm=NONE ctermbg=darkmagenta guibg=white
+set wrap
+
+set mouse=a
+set scrolloff=5
+set noswapfile
+
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set smartindent
+
+
+
+nnoremap ; :s/$/;/<CR>
+
+
