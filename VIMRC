@@ -1,5 +1,6 @@
 syntax on
 
+filetype plugin indent on
 set showmatch
 set cursorline
 hi CursorLine cterm=NONE ctermbg=darkmagenta guibg=white
@@ -12,8 +13,23 @@ set noswapfile
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set smartindent
+"set autoindent
 
-
+function! Template(ClassName, objname)
+	au!
+		read ~/.vim/templates/Temp.cpp
+		let l = 1
+		for line in getline(1, "$")
+			call setline(l, substitute(line, 'Temp', a:ClassName, "g"))
+			let l = l + 1
+		endfor
+		let l = 1
+		for line in getline(1, "$")
+			call setline(l, substitute(line, 'temp', a:objname, "g"))
+			let l = l + 1
+		endfor
+	augroup END
+endfunction
 
 nnoremap ; :s/$/;/<CR>
 
